@@ -245,7 +245,7 @@ void PipelineImpl::buildForAppendOrRecovery(bool recovery) {
 
                     // We may have remove nodes due to timeout, try again, but allow for
                     // excluded ones to be added back
-                    if (!addDatanodeToPipeline(excludedNodes) && !canAddDatanodeBest) {
+                    if (!addDatanodeToPipeline(empty) && !canAddDatanodeBest) {
                         THROW(HdfsIOException,
                               "Failed to add new datanode into pipeline for block: %s file %s, "
                               "set \"output.replace-datanode-on-failure\" to \"false\" to disable this feature.",
